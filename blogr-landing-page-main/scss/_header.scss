@@ -1,0 +1,285 @@
+@import './variables';
+
+.header {
+  width: 100%;
+  height: 70vh;
+  background-image: url(../images/bg-pattern-intro.svg),
+    linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center left;
+  border-radius: 0 0 0 80px;
+  background-color: $Lightred;
+}
+
+.nav {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  display: flex;
+  // justify-content: space-between;
+}
+
+.nav-menu {
+  width: 100%;
+  height: 50px;
+  margin-top: 40px;
+  display: flex;
+}
+
+.nav-buttons {
+  display: flex;
+  position: absolute;
+  right: 100px;
+  top: 40px;
+
+  .login {
+    text-decoration: none;
+    color: white;
+    padding: 10px 25px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .signup {
+    background-color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    color: $Lightred;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $Verylightred;
+      color: white;
+    }
+  }
+}
+
+.logo {
+  position: relative;
+  top: 40px;
+  margin-left: 90px;
+  margin-right: 40px;
+}
+
+.header-text {
+  text-align: center;
+
+  h1 {
+    font-size: 48px;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: white;
+    margin-top: 20px;
+  }
+
+  button {
+    margin-top: 40px;
+  }
+
+  .start {
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50px;
+    background-color: white;
+    color: $Lightred;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $Verylightred;
+      color: white;
+    }
+  }
+
+  .learn {
+    width: 120px;
+    height: 40px;
+    border-radius: 50px;
+    color: white;
+    background-color: $Lightred;
+    border: 1px solid white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: $Verylightred;
+    }
+  }
+}
+
+// mobile hamburger
+
+.hamburger {
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  display: none;
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+  }
+}
+
+// dropdown buttons
+
+.product,
+.company,
+.connect {
+  position: relative;
+  top: 10px;
+  padding: 0 40px;
+}
+
+.product button,
+.company button,
+.connect button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.product li,
+.company li,
+.connect li {
+  line-height: 2;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.product ul,
+.company ul,
+.connect ul {
+  width: 150px;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  border-radius: 10px;
+}
+
+.product a,
+.company a,
+.connect a {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+
+  &:hover {
+    font-weight: 800;
+  }
+}
+
+.product button:focus + ul,
+.company button:focus + ul,
+.connect button:focus + ul {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(10px);
+}
+
+@media (max-width: 900px) {
+  .header {
+    width: 100%;
+    height: 90vh;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  .start {
+    margin-right: 15px;
+  }
+
+  .header-text {
+    width: 90%;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 35px;
+    }
+
+    p {
+      padding: 5px;
+      font-size: 18px;
+    }
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: white;
+    width: 90%;
+    height: 400px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    transition: 0.3;
+    border-radius: 5px;
+
+    .product button,
+    .company button,
+    .connect button {
+      font-size: 18px;
+      line-height: 1.5;
+      color: black;
+      padding: 20px;
+
+      .light {
+        display: none;
+      }
+    }
+  }
+
+  .nav-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    justify-content: center;
+    align-items: center;
+
+    .login {
+      color: black;
+    }
+
+    .signup {
+      color: white;
+      background: linear-gradient(
+        to right,
+        hsl(13, 100%, 72%),
+        hsl(353, 100%, 62%)
+      );
+    }
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+}
